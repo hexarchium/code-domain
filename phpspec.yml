@@ -1,0 +1,6 @@
+suites:
+  default:
+    namespace: Hexarchium\CodeDomain
+    psr4_prefix: Hexarchium\CodeDomain
+extensions:
+  Cjm\PhpSpec\Extension\TypeHintedMethodsExtension: ~
