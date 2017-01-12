@@ -2,23 +2,13 @@
 
 namespace Hexarchium\CodeDomain\Model\ClassStructure\Events;
 
-use Hexarchium\CodeDomain\Model\ClassStructure\Entity\ClassStructure;
+use Hexarchium\CodeDomain\Event\AbstractDomainEvent;
 
-class ClassStructureAdded
+class ClassStructureAdded extends AbstractDomainEvent
 {
-    /**
-     * @var \DateTime
-     */
-    private $dateTime;
 
-    /**
-     * @var ClassStructure
-     */
-    private $classStructure;
-
-    public function __construct(\DateTime $dateTime, ClassStructure $classStructure)
+    public function __construct(\DateTime $dateTime)
     {
-        $this->dateTime = $dateTime;
-        $this->classStructure = $classStructure;
+        parent::__construct($dateTime);
     }
 }
