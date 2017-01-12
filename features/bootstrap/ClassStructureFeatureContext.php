@@ -1,5 +1,8 @@
 <?php
-use Behat\Behat\Tester\Exception\PendingException;
+use Hexarchium\CodeDomain\Model\ClassStructure\ClassStructureId;
+use Hexarchium\CodeDomain\Model\ClassStructure\Repository\ClassStructureRepositoryInterface;
+use Hexarchium\CodeDomain\UseCase\CreateClassStructure\Command;
+use Hexarchium\CodeDomain\UseCase\CreateClassStructure\UseCase;
 
 /**
  * Copyright
@@ -7,12 +10,36 @@ use Behat\Behat\Tester\Exception\PendingException;
 class ClassStructureFeatureContext implements \Behat\Behat\Context\Context
 {
     /**
+     * @var UseCase
+     */
+    private $useCase;
+
+    /**
+     * @var ClassStructureRepositoryInterface
+     */
+    private $classStructureRepository;
+
+    /**
+     * ClassStructureFeatureContext constructor.
+     *
+     * @param UseCase $useCase
+     * @param ClassStructureRepositoryInterface $classStructureRepository
+     */
+    public function __construct(UseCase $useCase, ClassStructureRepositoryInterface $classStructureRepository)
+    {
+        $this->useCase = $useCase;
+        $this->classStructureRepository = $classStructureRepository;
+    }
+
+
+    /**
      * @When I create class :arg1
      * @param $arg1
      */
     public function iCreateClass($arg1)
     {
-        throw new PendingException();
+        $command = new Command(new ClassStructureId($arg1));
+        $this->useCase->handle($command);
     }
 
     /**
@@ -21,6 +48,6 @@ class ClassStructureFeatureContext implements \Behat\Behat\Context\Context
      */
     public function iShouldSeeNewCreatedClass($arg1)
     {
-        throw new PendingException();
+        $this->classStructureRepository->getById(new ClassStructureId($arg1));
     }
 }

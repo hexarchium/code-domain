@@ -3,5 +3,6 @@ default:
     default:
       contexts:
         - FeatureContext: ~
-        - ClassStructureFeatureContext: ~
+        - ClassStructureFeatureContext:
+          - "@Hexarchium\\CodeDomain\\UseCase\\CreateClassStructure\\UseCase"
       services: "Helpers\\Container::factory"

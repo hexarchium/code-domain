@@ -2,6 +2,8 @@
 
 namespace Hexarchium\CodeDomain\Model\ClassStructure;
 
-class ClassStructureId
+use Hexarchium\CodeDomain\ValueObject\AbstractId;
+
+class ClassStructureId extends AbstractId
 {
 }
