@@ -5,4 +5,5 @@ default:
         - FeatureContext: ~
         - ClassStructureFeatureContext:
           - "@Hexarchium\\CodeDomain\\UseCase\\CreateClassStructure\\UseCase"
+          - "@Hexarchium\\CodeDomain\\Model\\ClassStructure\\Repository\\ClassStructureRepositoryInterface"
       services: "Helpers\\Container::factory"
