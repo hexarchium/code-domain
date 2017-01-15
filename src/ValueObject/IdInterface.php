@@ -9,5 +9,7 @@ interface IdInterface
     /**
      * @return string
      */
-    public function getId();
+    public function getName(): string;
+
+    public function getNameSpace(): string;
 }

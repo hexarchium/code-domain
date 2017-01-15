@@ -13,7 +13,7 @@ class ClassStructureAddedSpec extends ObjectBehavior
     function let(ClassStructure $classStructure)
     {
         $classStructure->getId()->willReturn(
-            new ClassStructureId('Class/Id')
+            new ClassStructureId('Id', 'Test\\')
         );
         $this->beConstructedWith(new \DateTime(), $classStructure);
     }
@@ -26,7 +26,12 @@ class ClassStructureAddedSpec extends ObjectBehavior
 
     function it_should_have_parameter_class_id()
     {
-        $this->getPayload()->shouldHaveKey('id');
+        $this->getPayload()->shouldHaveKey('name');
+    }
+
+    function it_should_have_parameter_class_namespace()
+    {
+        $this->getPayload()->shouldHaveKey('namespace');
     }
 
 

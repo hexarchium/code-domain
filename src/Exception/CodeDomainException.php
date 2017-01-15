@@ -1,6 +1,7 @@
 <?php
+
 namespace Hexarchium\CodeDomain\Exception;
 
-class CodeDomain extends \Exception
+class CodeDomainException extends \Exception
 {
 }

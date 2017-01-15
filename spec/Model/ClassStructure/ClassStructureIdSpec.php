@@ -10,7 +10,7 @@ class ClassStructureIdSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('ClassStructureId');
+        $this->beConstructedWith('ClassStructureId', 'Test\\');
     }
 
     function it_is_initializable()

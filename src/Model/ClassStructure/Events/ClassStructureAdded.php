@@ -11,6 +11,7 @@ class ClassStructureAdded extends AbstractDomainEvent
     public function __construct(\DateTime $dateTime, ClassStructure $classStructure)
     {
         parent::__construct($dateTime);
-        $this->setParam('id', $classStructure->getId()->getId());
+        $this->setParam('name', $classStructure->getId()->getName());
+        $this->setParam('namespace', $classStructure->getId()->getNamespace());
     }
 }
