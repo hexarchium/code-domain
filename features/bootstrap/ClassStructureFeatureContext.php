@@ -31,23 +31,24 @@ class ClassStructureFeatureContext implements \Behat\Behat\Context\Context
         $this->classStructureRepository = $classStructureRepository;
     }
 
-
     /**
-     * @When I create class :arg1
+     * @When I create class :arg1 in namespace :arg2
      * @param $arg1
+     * @param $arg2
      */
-    public function iCreateClass($arg1)
+    public function iCreateClass($arg1, $arg2)
     {
-        $command = new Command(new ClassStructureId($arg1));
+        $command = new Command(new ClassStructureId($arg1, $arg2));
         $this->useCase->handle($command);
     }
 
     /**
-     * @Then I should see new created class :arg1
+     * @Then I should see new created class :arg1 in namespace :arg2
      * @param $arg1
+     * @param $arg2
      */
-    public function iShouldSeeNewCreatedClass($arg1)
+    public function iShouldSeeNewCreatedClass($arg1, $arg2)
     {
-        $this->classStructureRepository->getById(new ClassStructureId($arg1));
+        $this->classStructureRepository->getById(new ClassStructureId($arg1, $arg2));
     }
 }

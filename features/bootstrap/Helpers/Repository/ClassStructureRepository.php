@@ -12,14 +12,18 @@ class ClassStructureRepository extends \ArrayObject implements ClassStructureRep
 {
     public function add(ClassStructure $classStructure)
     {
+        $classStructureId = $classStructure->getId();
+        $key = $classStructureId->getNamespace() . $classStructureId->getName();
         $this->offsetSet(
-            $classStructure->getId()->getId(),
+            $key,
             $classStructure
         );
     }
 
     public function getById(ClassStructureId $classStructureId): ClassStructure
     {
-        return $this->offsetGet($classStructureId->getId());
+        $key = $classStructureId->getNamespace() . $classStructureId->getName();
+
+        return $this->offsetGet($key);
     }
 }
