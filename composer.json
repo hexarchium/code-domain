@@ -1,7 +1,7 @@
 {
   "name": "hexarchium/code-domain",
   "description": "Code domain management",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "MIT",
   "time": "2017-01-07",
   "require-dev": {
